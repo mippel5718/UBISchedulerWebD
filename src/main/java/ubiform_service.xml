@@ -1,0 +1,13 @@
+<service-config>
+  <domain name="DEFAULT">
+    <Connection>
+      <DbType>mariadb</DbType>
+      <Desc>aws Scheduler db</Desc>
+      <Server>15.165.145.36</Server>
+      <Port>3306</Port>
+      <Database>ubstorm</Database>
+      <UserId>ubadmin</UserId>
+      <UserPasswd>ubadmin123</UserPasswd>
+    </Connection>
+  </domain>
+</service-config>

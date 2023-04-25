@@ -1,0 +1,86 @@
+<!-- tab-menu -->
+<div class="nav-box shadow">
+  <ul class="container nav nav-tabs" id="main_navi">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="tab" href="#workmanagement">작업관리</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#schedulemanagement">스케줄관리</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#schedulehistory">스케줄이력</a>
+    </li>
+  </ul>
+</div>
+<!-- tab-contents -->
+
+<div class="container tab-content">
+
+  <!-- tab-작업관리 -->
+  <div class="tab-pane fade show active" id="workmanagement">
+    <p></p>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">작업명</span>
+      </div>
+      <input type="text" class="form-control" placeholder="" id="search_workmanagement_name_ti">
+      <div class="input-group-append">
+        <button class="btn btn-search" type="button" id="search_workmanagement_btn">검색</button>
+        <button class="btn btn-primary" type="button" id="add_work_btn">추가</button>
+      </div>
+    </div>
+    <div class="card shadow-sm mb-3"><div class="card-body"><div id="tab1_div" class="display table-responsive" style="width:100%"></div></div></div>
+  </div>
+  
+  <!-- tab-스케줄관리 -->
+  <div class="tab-pane fade" id="schedulemanagement">
+    <p></p>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">스케줄명</span>
+      </div>
+      <input type="text" class="form-control" placeholder="" aria-label="search_workname" aria-describedby="basic-addon2" id="search_schedule_schedulename_ti">
+      <div class="input-group-prepend">
+        <span class="input-group-text">작업명</span>
+      </div>
+      <input type="text" class="form-control" placeholder="" aria-label="search_workname" aria-describedby="basic-addon2" id="search_schedule_workname_ti">
+      <div class="input-group-append">
+        <button class="btn btn-search" type="button" id="search_schedule_btn">검색</button>
+        <button class="btn btn-primary" type="button" id="add_schedule_btn">추가</button>
+      </div>
+    </div>
+    <div class="card shadow-sm mb-3"><div class="card-body"><div id="tab2_div" class="display table-responsive" style="width:100%"></div></div></div>
+  </div>
+  
+  <!-- tab-스케줄이력 -->
+  <div class="tab-pane fade" id="schedulehistory">
+    <p></p>
+    <div class="input-group mb-3">
+      <div class="input-group-prepend">
+        <span class="input-group-text">요청일자</span>
+      </div>
+      <input type="date" class="form-control" id="search_schedule_history_s_date" name="trip-start" value="2023-01-01" min="2023-01-01" max="2099-12-30">
+      <div class="input-group-prepend">
+        <span class="input-date-text">~</span>
+      </div>
+      <input type="date" class="form-control" id="search_schedule_history_e_date" name="trip-start" value="2023-12-31" min="2023-01-01" max="2099-12-31">
+      <div class="input-group-prepend">
+        <span class="input-group-text">상태</span>
+      </div>
+      <select class="custom-select" id="search_schedule_type">
+        <option value="all" selected>모두</option>
+        <option value="success">성공</option>
+        <option value="failed">실패</option>
+        <option value="running">실행중</option>
+        <option value="pause">일시정지</option>
+      </select>
+      <div class="input-group-prepend">
+        <span class="input-group-text">작업명</span>
+      </div>
+      <input type="text" class="form-control" placeholder="" aria-label="search_workname" aria-describedby="basic-addon2" id="search_schedule_schedulehistory_ti">
+      <div class="input-group-append"><button class="btn btn-search" type="button" id="search_schedulehistory_btn">검색</button></div>
+    </div>
+    <div class="card shadow-sm mb-3"><div class="card-body"><div id="tab3_div" class="display table-responsive" style="width:100%"></div></div></div>
+  </div>
+  
+</div>

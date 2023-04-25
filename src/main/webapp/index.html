@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="google" value="notranslate" />
+	<title>MYSUIT Scheduler</title>    
+
+    <link rel="shortcut icon" type="image/x-icon" href="./assets/favicon-3a4937de.ico" />
+    <link rel="shortcut icon" href="./assets/favicon-3a4937de.ico" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon-3a4937de.ico"/>
+    <link rel="icon" type="image/vnd.microsoft.icon" href="./assets/favicon-3a4937de.ico"/>
+    <link rel="SHORTCUT ICON" href="./assets/favicon-3a4937de.ico"/>
+
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.bundle.min.js"></script>
+    <script src="./js/datatables.min.js"></script>
+    <script src="./js/bootstrap-toggle.min.js"></script>
+    <script src="./js/base64.js"></script>
+    
+  <script type="module" crossorigin src="./assets/index-2b19a579.js"></script>
+  <link rel="stylesheet" href="./assets/index-80ee2748.css">
+</head>
+<body>
+  <div style="width: 100%;">
+
+      <!-- Main-->
+      <div id="main_container"></div>
+      <!-- Modal login-->
+      <div class="modal fade" id="login_contents" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true"></div>
+      <!-- Modal work popup-->
+      <div id="addwork_contents"></div>
+      <!-- Modal schedule popup-->
+      <div id="addschedule_contents"></div>
+  
+      <div id="addworkparam_contents"></div>
+      <!-- Modal 작업목록 popup-->
+      <div id="search_work_list_contents"></div>
+  </div>
+
+  <div class="position-fixed bottom-0 right-0 p-3" style="z-index: 5; right: 0; bottom: 0;">
+    <div id="liveToast" class="toast hide" role="alert" aria-live="assertive" aria-atomic="true" data-delay="2000">
+      <div class="toast-header">
+        <img src="./assets/favicon-3a4937de.ico" class="rounded mr-2" style="width: 15px; height: 15px;">
+        <strong class="mr-auto">MYSUIT Scheduler</strong>
+        <small>.</small>
+        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="toast-body" id="toastmsg">
+        Welcome MYSUIT Scheduler
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
