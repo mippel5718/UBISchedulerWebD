@@ -13,7 +13,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><span style="color: red;">*</span>스케줄명</span>
             </div>
-            <input type="text" class="form-control" placeholder="Schedule01" aria-label="Username" aria-describedby="basic-addon1" id="add_schedule_name">
+            <input type="text" class="form-control" placeholder="스케줄명을 입력하세요." aria-label="Username" aria-describedby="basic-addon1" id="add_schedule_name">
             <div class="input-group-append">
               <a href="#" role="button" class="btn btn-danger" id="popup_schedule_del_btn" >삭제</a>              
             </div>              
@@ -24,7 +24,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text">설 명</span>
             </div>
-            <input type="text" class="form-control" placeholder="스케줄 테스트1" aria-label="Username" aria-describedby="basic-addon1" id="add_schedule_desc"> 
+            <input type="text" class="form-control" placeholder="스케줄 설명을 입력하세요." aria-label="Username" aria-describedby="basic-addon1" id="add_schedule_desc"> 
           </div>
 
           <div class="input-group mb-3">
@@ -51,7 +51,7 @@
             <input type="checkbox" data-toggle="toggle" data-on="토" data-off="토" value="6" id="weekly_Saturday" style="display: none;">
             <input type="checkbox" data-toggle="toggle" data-on="일" data-off="일" value="7" id="weekly_Sunday" style="display: none;">
 
-            <input type="date" class="form-control" id="schedule_calendar_select" name="trip-start" value="2023-01-01" min="2023-01-01" max="2024-12-31" style="display: none;">
+            <input type="date" class="form-control" id="schedule_calendar_select" name="trip-start" value="2023-01-01" min="2023-01-01" max="2024-12-31" style="width:90px";"display: none;">
 
             <select class="custom-select" id="schedule_month_select" style="display: none;">
             </select>
@@ -68,19 +68,19 @@
             <select class="custom-select" id="schedule_hour_select" style="display: none;"></select>
 
             <div class="input-group-prepend" id="schedule_hour_select_label" style="display: none;">
-              <span class="input-group-text">시</span>  
+              <span class="input-HMS-text">시</span>  
             </div>
             
             <select class="custom-select" id="schedule_min_select" style="display: none;"></select>
 
             <div class="input-group-prepend" id="schedule_min_select_label" style="display: none;">
-              <span class="input-group-text">분</span>  
+              <span class="input-HMS-text">분</span>  
             </div>
 
             <select class="custom-select" id="schedule_sec_select" style="display: none;"></select>
 
             <div class="input-group-prepend" id="schedule_sec_select_label" style="display: none;">
-              <span class="input-group-text">초</span>  
+              <span class="input-HMS-text">초</span>  
             </div>
 
           </div>
@@ -101,7 +101,7 @@
             <div class="input-group-prepend">
               <span class="input-group-text"><span style="color: red;">*</span>작업명</span>
             </div>
-            <input type="text" class="form-control" placeholder="SavePDF01" aria-label="Username" aria-describedby="basic-addon1" id="popup__work_name_input" readonly>
+            <input type="text" class="form-control" placeholder="작업목록 버튼을 이용하여 작업명을 선택하세요." aria-label="Username" aria-describedby="basic-addon1" id="popup__work_name_input" readonly>
             <div class="input-group-append">
               <a href="#" role="button" class="btn btn-secondary popover-test" id="popup_search_work_list_btn" >작업목록</a>              
             </div>              
@@ -111,7 +111,7 @@
             
             <div class="input-group-prepend">
               <span class="input-group-text" ><span style="color: red;">*</span>사용여부</span>
-              <div class="input-group-text">
+              <div class="input-HMS-text">
                 <input type="radio" aria-label="Radio button for following text input" name="use_radio" value="Y" checked>
               </div>
             </div>
@@ -120,14 +120,11 @@
               <span class="input-group-text">Y</span>
             </div>
 
-            <!-- <input type="text" class="form-control"  aria-label="Text input with radio button" readonly value="Y"> -->
-            <div class="input-group-prepend">
-              <span class="input-group-text"></span>
-            </div>
+
 
 
             <div class="input-group-prepend">
-              <div class="input-group-text">
+              <div class="input-HMS-text">
               <input type="radio" aria-label="Radio button for following text input" name="use_radio" value="N">
               </div>
             </div>
@@ -138,6 +135,29 @@
             <!-- <input type="text" class="form-control"  aria-label="Text input with radio button" readonly value="N"> -->
           </div>
        
+       
+          <div class="input-group mb-3" id="column_info">
+
+            <div class="input-group-prepend">
+              <span class="input-group-text" >등록자</span>
+            </div>
+            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" id="name" readonly>
+            
+
+            <div class="input-group-prepend">
+              <span class="input-group-text" >생성일시</span>
+            </div>  
+            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" id="insertDate" readonly>
+            
+            
+            <div class="input-group-prepend">
+              <span class="input-group-text" >수정일시</span>
+            </div>
+            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" id="updateDate" readonly>
+
+          </div>
+      
+      
           </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
