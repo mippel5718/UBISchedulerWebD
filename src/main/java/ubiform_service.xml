@@ -1,12 +1,12 @@
 <service-config>
   <domain name="DEFAULT">
     <Connection>
-      <DbType>mariadb</DbType>
-      <Desc>aws Scheduler db</Desc>
-      <Server>15.165.145.36</Server>
-      <Port>3306</Port>
+      <DbType>postgresql</DbType>
+      <Desc>Scheduler db</Desc>
+      <Server>192.168.0.181</Server>
+      <Port>5432</Port>
       <Database>ubstorm</Database>
-      <UserId>ubadmin</UserId>
+      <UserId>postgres</UserId>
       <UserPasswd>ubadmin123</UserPasswd>
     </Connection>
   </domain>
