@@ -1,173 +1,159 @@
 <div class="modal fade" id="addschedule_modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true" >
     <div class="modal-dialog modal-dialog-centered" role="document" style="max-width: 950px;">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="popupAddScheduleTitle">스케줄 추가</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
+    	
+		<div class="modal-content">
+			<!-- 타이틀 -->
+			<div class="modal-header">
+				<h5 class="modal-title" id="popupAddScheduleTitle">스케줄 추가</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<!-- 본문 -->
+			<div class="modal-body">
+				<!-- 스케줄 추가 - 스케줄명 -->
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+						<span class="input-group-text"><span style="color: red;">*</span>스케줄명</span>
+					</div>
+					<input type="text" class="form-control" placeholder="스케줄명을 입력하세요." aria-label="Username" aria-describedby="basic-addon1" id="add_schedule_name">
+					<div class="input-group-append">
+						<a href="#" role="button" class="btn btn-danger" id="popup_schedule_del_btn" >삭제</a>              
+					</div>              
+				</div>
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><span style="color: red;">*</span>스케줄명</span>
-            </div>
-            <input type="text" class="form-control" placeholder="스케줄명을 입력하세요." aria-label="Username" aria-describedby="basic-addon1" id="add_schedule_name">
-            <div class="input-group-append">
-              <a href="#" role="button" class="btn btn-danger" id="popup_schedule_del_btn" >삭제</a>              
-            </div>              
+				<!-- 스케줄 추가 - 설명 -->
+				<div class="input-group mb-3">
+				  <div class="input-group-prepend">
+				    <span class="input-group-text">설 명</span>
+				  </div>
+				  <input type="text" class="form-control" placeholder="스케줄 설명을 입력하세요." aria-label="Username" aria-describedby="basic-addon1" id="add_schedule_desc"> 
+				</div>
 
-          </div>
+				<!-- 스케줄 추가 - 스케줄 -->
+				<div class="input-group mb-3">
+					<div class="input-group-prepend">
+				    <label class="input-group-text" for="inputGroupSelect01"><span style="color: red;">*</span>스케줄</label>
+					</div>
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">설 명</span>
-            </div>
-            <input type="text" class="form-control" placeholder="스케줄 설명을 입력하세요." aria-label="Username" aria-describedby="basic-addon1" id="add_schedule_desc"> 
-          </div>
+		            <select class="custom-select" id="scheduleCondition_type" onchange="changeScheduleDate()">
+		              <option value="user">사용자지정</option>
+		              <option value="dayly" selected>매일</option>
+		              <option value="weekly">매주</option>
+		              <option value="monthly">매월</option>
+		              <option value="yearly">매년</option>
+		              <option value="one">1회</option>
+		            </select>
+	
+	            	<input type="text" class="form-control" placeholder="condition" aria-label="user custom" aria-describedby="basic-addon1" id="schedule_custom" style="display: none;">
+	
+		            <input type="checkbox" data-toggle="toggle" data-on="월" data-off="월" value="2" id="weekly_Monday" style="display: none;">
+		            <input type="checkbox" data-toggle="toggle" data-on="화" data-off="화" value="3" id="weekly_Tuesday" style="display: none;">
+		            <input type="checkbox" data-toggle="toggle" data-on="수" data-off="수" value="4" id="weekly_Wednesday" style="display: none;">
+		            <input type="checkbox" data-toggle="toggle" data-on="목" data-off="목" value="5" id="weekly_Thursday" style="display: none;">
+		            <input type="checkbox" data-toggle="toggle" data-on="금" data-off="금" value="6" id="weekly_Friday" style="display: none;">
+		            <input type="checkbox" data-toggle="toggle" data-on="토" data-off="토" value="7" id="weekly_Saturday" style="display: none;">
+		            <input type="checkbox" data-toggle="toggle" data-on="일" data-off="일" value="1" id="weekly_Sunday" style="display: none;">
+		
+		            <input type="date" class="form-control" id="schedule_calendar_select" name="trip-start" value="2023-01-01" min="2023-01-01" max="2999-12-31" style="width:90px";"display: none;">
+		
+		            <select class="custom-select" id="schedule_month_select" style="display: none;">
+		            </select>
+	
+		            <div class="input-group-prepend" id="schedule_month_select_label" style="display: none;">
+		              <span class="input-group-text">월</span>  
+		            </div>
+		            <select class="custom-select" id="schedule_day_select" style="display: none;"></select>
+	
+		            <div class="input-group-prepend" id="schedule_day_select_label" style="display: none;">
+		              <span class="input-group-text">일</span>  
+		            </div>
+		
+		            <select class="custom-select" id="schedule_hour_select" style="display: none;"></select>
+		
+		            <div class="input-group-prepend" id="schedule_hour_select_label" style="display: none;">
+		              <span class="input-HMS-text">시</span>  
+		            </div>
+	            
+		            <select class="custom-select" id="schedule_min_select" style="display: none;"></select>
+		
+		            <div class="input-group-prepend" id="schedule_min_select_label" style="display: none;">
+		              <span class="input-HMS-text">분</span>  
+		            </div>
+		
+		            <select class="custom-select" id="schedule_sec_select" style="display: none;"></select>
+		
+		            <div class="input-group-prepend" id="schedule_sec_select_label" style="display: none;">
+		              <span class="input-HMS-text">초</span>  
+		            </div>
 
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <label class="input-group-text" for="inputGroupSelect01"><span style="color: red;">*</span>스케줄</label>
-            </div>
+				</div>
 
-            <select class="custom-select" id="scheduleCondition_type" onchange="changeScheduleDate()">
-              <option value="user">사용자지정</option>
-              <option value="dayly" selected>매일</option>
-              <option value="weekly">매주</option>
-              <option value="monthly">매월</option>
-              <option value="yearly">매년</option>
-              <option value="one">1회</option>
-            </select>
-
-            <input type="text" class="form-control" placeholder="condition" aria-label="user custom" aria-describedby="basic-addon1" id="schedule_custom" style="display: none;">
-
-            <input type="checkbox" data-toggle="toggle" data-on="월" data-off="월" value="2" id="weekly_Monday" style="display: none;">
-            <input type="checkbox" data-toggle="toggle" data-on="화" data-off="화" value="3" id="weekly_Tuesday" style="display: none;">
-            <input type="checkbox" data-toggle="toggle" data-on="수" data-off="수" value="4" id="weekly_Wednesday" style="display: none;">
-            <input type="checkbox" data-toggle="toggle" data-on="목" data-off="목" value="5" id="weekly_Thursday" style="display: none;">
-            <input type="checkbox" data-toggle="toggle" data-on="금" data-off="금" value="6" id="weekly_Friday" style="display: none;">
-            <input type="checkbox" data-toggle="toggle" data-on="토" data-off="토" value="7" id="weekly_Saturday" style="display: none;">
-            <input type="checkbox" data-toggle="toggle" data-on="일" data-off="일" value="1" id="weekly_Sunday" style="display: none;">
-
-            <input type="date" class="form-control" id="schedule_calendar_select" name="trip-start" value="2023-01-01" min="2023-01-01" max="2999-12-31" style="width:90px";"display: none;">
-
-            <select class="custom-select" id="schedule_month_select" style="display: none;">
-            </select>
-
-            <div class="input-group-prepend" id="schedule_month_select_label" style="display: none;">
-              <span class="input-group-text">월</span>  
-            </div>
-            <select class="custom-select" id="schedule_day_select" style="display: none;"></select>
-
-            <div class="input-group-prepend" id="schedule_day_select_label" style="display: none;">
-              <span class="input-group-text">일</span>  
-            </div>
-
-            <select class="custom-select" id="schedule_hour_select" style="display: none;"></select>
-
-            <div class="input-group-prepend" id="schedule_hour_select_label" style="display: none;">
-              <span class="input-HMS-text">시</span>  
-            </div>
-            
-            <select class="custom-select" id="schedule_min_select" style="display: none;"></select>
-
-            <div class="input-group-prepend" id="schedule_min_select_label" style="display: none;">
-              <span class="input-HMS-text">분</span>  
-            </div>
-
-            <select class="custom-select" id="schedule_sec_select" style="display: none;"></select>
-
-            <div class="input-group-prepend" id="schedule_sec_select_label" style="display: none;">
-              <span class="input-HMS-text">초</span>  
-            </div>
-
-          </div>
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text">유효일자</span>
-              <span class="input-group-text">시작일</span>
-            </div>
-            <input type="date" class="form-control" id="valid_s_date" name="trip-start" value="2023-01-01" min="2023-01-01" max="2999-12-31">
-            <div class="input-group-prepend">
-              <span class="input-group-text">종료일</span>
-            </div>
-            <input type="date" class="form-control" id="valid_e_date" name="trip-start" value="" min="" max="2999-12-31">
-          </div>
-
-          <div class="input-group mb-3">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><span style="color: red;">*</span>작업명</span>
-            </div>
-            <input type="text" class="form-control" placeholder="작업목록 버튼을 이용하여 작업명을 선택하세요." aria-label="Username" aria-describedby="basic-addon1" id="popup__work_name_input" readonly>
-            <div class="input-group-append">
-              <a href="#" role="button" class="btn btn-secondary popover-test" id="popup_search_work_list_btn" >작업목록</a>              
-            </div>              
-          </div>
-
-          <div class="input-group mb-3">
-            
-            <div class="input-group-prepend">
-              <span class="input-group-text" ><span style="color: red;">*</span>사용여부</span>
-              <div class="input-HMS-text">
-                <input type="radio" aria-label="Radio button for following text input" name="use_radio" value="Y" checked>
-              </div>
-            </div>
-
-            <div class="input-group-prepend">
-              <span class="input-group-text">Y</span>
-            </div>
-
-
-
-
-            <div class="input-group-prepend">
-              <div class="input-HMS-text">
-              <input type="radio" aria-label="Radio button for following text input" name="use_radio" value="N">
-              </div>
-            </div>
-
-            <div class="input-group-prepend">
-              <span class="input-group-text">N</span>
-            </div>
-            <!-- <input type="text" class="form-control"  aria-label="Text input with radio button" readonly value="N"> -->
-          </div>
-       
-       
-          <div class="input-group mb-3" id="column_info">
-
-            <div class="input-group-prepend">
-              <span class="input-group-text" >등록자</span>
-            </div>
-            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" id="name" readonly>
-            
-
-            <div class="input-group-prepend">
-              <span class="input-group-text" >생성일시</span>
-            </div>  
-            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" id="insertDate" readonly>
-            
-            
-            <div class="input-group-prepend">
-              <span class="input-group-text" >수정일시</span>
-            </div>
-            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" id="updateDate" readonly>
-
-          </div>
+				<!-- 스케줄 추가 - 유효일자 -->
+	          	<div class="input-group mb-3">
+	            	<div class="input-group-prepend">
+	              		<span class="input-group-text">유효일자</span>
+	              		<span class="input-group-text">시작일</span>
+	            	</div>
+	            	<input type="date" class="form-control" id="valid_s_date" name="trip-start" value="2023-01-01" min="2023-01-01" max="2999-12-31">
+		            <div class="input-group-prepend">
+		              <span class="input-group-text">종료일</span>
+		            </div>
+		            <input type="date" class="form-control" id="valid_e_date" name="trip-start" value="" min="" max="2999-12-31">
+	          	</div>
+	
+				<!-- 스케줄 추가 - 작업명 -->
+				<div class="input-group mb-3">
+		            <div class="input-group-prepend">
+		              <span class="input-group-text"><span style="color: red;">*</span>작업명</span>
+		            </div>
+		            <input type="text" class="form-control" placeholder="작업목록 버튼을 이용하여 작업명을 선택하세요." aria-label="Username" aria-describedby="basic-addon1" id="popup__work_name_input" readonly>
+		            <div class="input-group-append">
+		              <a href="#" role="button" class="btn btn-secondary popover-test" id="popup_search_work_list_btn" >작업목록</a>              
+		            </div>              
+				</div>
+	
+				<!-- 스케줄 추가 - 사용여부 -->
+				<div class="input-group mb-3">
+	            
+					<div class="input-group-prepend">
+						<span class="input-group-text" ><span style="color: red;">*</span>사용여부</span>
+		              
+						<div class="input-group-text" style="min-width: 0px">
+			 				<input type="checkbox" aria-label="Checkbox for following text input" id="addschedule_use_check">
+						</div>
+		            </div>
+	
+				</div>
+	       
+	       
+	          	<div class="input-group mb-3" id="column_info">
+		            <div class="input-group-prepend">
+		              <span class="input-group-text" >등록자</span>
+		            </div>
+		            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" id="name" readonly>
+		            
+		
+		            <div class="input-group-prepend">
+		              <span class="input-group-text" >생성일시</span>
+		            </div>  
+		            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" id="insertDate" readonly>
+		            
+		            <div class="input-group-prepend">
+		              <span class="input-group-text" >수정일시</span>
+		            </div>
+		            <input type="text" class="form-control" placeholder="" aria-label="Username" aria-describedby="basic-addon1" id="updateDate" readonly>
+	          	</div>
       
-      
-          </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-          <button type="button" class="btn btn-primary" id="add_schedule_save_btn">저장</button>
-        </div>
-      </div>
-    </div>
-
-
+			</div>
+		
+	        <div class="modal-footer">
+	          <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
+	          <button type="button" class="btn btn-primary" id="add_schedule_save_btn">저장</button>
+	        </div>
+        
+		</div>
+	</div>
     <!-- Modal 작업목록 popup-->
     <!-- <div id="search_work_list_contents"></div> -->
-
-  </div>
+</div>
